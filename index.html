@@ -1,0 +1,116 @@
+<!-- Commit Art Gallery mock site based on nukaga.co.jp layout -->
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commit Art Gallery</title>
+    <!-- Tailwind CDN for rapid styling -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="font-sans antialiased text-gray-800 scroll-smooth">
+    <!-- ================== HEADER ================== -->
+    <header class="fixed inset-x-0 top-0 bg-white shadow z-50">
+      <nav class="container mx-auto flex justify-between items-center py-4 px-4">
+        <h1 class="text-xl font-semibold tracking-wide">COMMIT ART</h1>
+        <ul class="hidden md:flex gap-6 text-sm uppercase tracking-wider">
+          <li><a href="#hero" class="hover:text-gray-500">Home</a></li>
+          <li><a href="#exhibitions" class="hover:text-gray-500">Exhibitions</a></li>
+          <li><a href="#artists" class="hover:text-gray-500">Artists</a></li>
+          <li><a href="#service" class="hover:text-gray-500">Service</a></li>
+          <li><a href="#news" class="hover:text-gray-500">News</a></li>
+          <li><a href="#about" class="hover:text-gray-500">About</a></li>
+          <li><a href="#contact" class="hover:text-gray-500">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ================== HERO ================== -->
+    <section id="hero" class="h-screen bg-cover bg-center flex items-center justify-center" style="background-image:url('https://placehold.co/1920x1080?text=Hero+Image');">
+      <h2 class="text-white text-4xl md:text-6xl font-bold drop-shadow-lg">Commit Art Gallery</h2>
+    </section>
+
+    <!-- ================== NEWS ================== -->
+    <section id="news" class="py-20 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-10">News</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- News Card -->
+          <article class="bg-white p-6 shadow hover:shadow-lg transition">
+            <h3 class="font-semibold mb-2">夏季休業のお知らせ</h3>
+            <p class="text-sm text-gray-500 mb-4">2025年8月10日 - 8月17日</p>
+            <p>平素は格別のご高配を賜り、誠にありがとうございます。夏季休業期間中は…</p>
+          </article>
+          <!-- Duplicate & edit for more news items -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== EXHIBITIONS ================== -->
+    <section id="exhibitions" class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-10">Exhibitions</h2>
+        <div class="grid md:grid-cols-2 gap-10">
+          <article class="flex flex-col md:flex-row shadow hover:shadow-lg transition">
+            <img src="https://placehold.co/400x300?text=Exhibition" alt="Exhibition" class="w-full md:w-1/3 object-cover">
+            <div class="p-6">
+              <h3 class="font-semibold mb-2">Fields of Memory</h3>
+              <p class="text-sm text-gray-500 mb-4">2025.06.25 - 07.31</p>
+              <p class="text-sm">展示概要をここに記載します。概要文は3行程度がベスト。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== ARTISTS ================== -->
+    <section id="artists" class="py-20 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-10">Artists</h2>
+        <ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center text-sm font-medium tracking-wide">
+          <li>Atsuko Tanaka</li><li>Yuki Katsura</li><li>Vincent van Gogh</li><li>Claude Monet</li><li>Pablo Picasso</li><li>Yayoi Kusama</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================== SERVICE ================== -->
+    <section id="service" class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-10">Service</h2>
+        <p class="max-w-3xl leading-relaxed">美術品の購入・売却、美術館設立サポート、作品修復、保管、目録作成などあらゆるご相談を承ります。</p>
+      </div>
+    </section>
+
+    <!-- ================== ABOUT ================== -->
+    <section id="about" class="py-20 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-10">About</h2>
+        <p class="max-w-3xl leading-relaxed">Commit Art Galleryは東京都中央区銀座に所在し、日本と海外をつなぐアートプラットフォームとして…（任意の紹介文を追加）。</p>
+      </div>
+    </section>
+
+    <!-- ================== CONTACT ================== -->
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-4 max-w-xl">
+        <h2 class="text-3xl font-bold mb-10 text-center">Contact</h2>
+        <form class="grid gap-6">
+          <input type="text" placeholder="お名前" class="border p-3 rounded">
+          <input type="email" placeholder="メールアドレス" class="border p-3 rounded">
+          <textarea placeholder="お問い合わせ内容" class="border p-3 rounded h-32"></textarea>
+          <button type="submit" class="bg-black text-white py-3 px-6 rounded hover:bg-gray-800 transition">送信</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================== FOOTER ================== -->
+    <footer class="bg-black text-white py-10">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between text-sm">
+        <p>© 2025 Commit Art Gallery</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <a href="#" class="hover:text-gray-400" aria-label="Instagram">Instagram</a>
+          <a href="#" class="hover:text-gray-400" aria-label="Facebook">Facebook</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
