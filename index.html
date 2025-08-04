@@ -1,46 +1,102 @@
-<!-- Commit Art Gallery mock site based on nukaga.co.jp layout -->
+<!-- Commit Art Gallery mock site with animations & style tuned to nukaga.co.jp (desktop & mobile) -->
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Commit Art Gallery</title>
-    <!-- Tailwind Play CDN (開発用). 404 を避けるため、公式推奨のスクリプト版を採用 -->
+
+    <!-- ======================================= -->
+    <!-- 1. FONTS & ICONS                       -->
+    <!-- ======================================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- ======================================= -->
+    <!-- 2. Tailwind (Play CDN) & Config        -->
+    <!-- ======================================= -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
-    <!-- オプションで Google Fonts などを読み込む場合はここに追加 -->
+    <!-- Tailwind config overrides -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Noto Sans JP', 'ui-sans-serif', 'system-ui'],
+            },
+            colors: {
+              primary: '#000000', // main text
+              accent: '#666666', // subtle grey
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- ======================================= -->
+    <!-- 3. Animation Libraries (AOS)           -->
+    <!-- ======================================= -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-in-out',
+          once: true,
+        });
+      });
+    </script>
+
+    <!-- ======================================= -->
+    <!-- 4. Utility Styles                      -->
+    <!-- ======================================= -->
+    <style>
+      /* Hide scrollbars for horizontal overflow animations if needed */
+      html {
+        scrollbar-width: thin;
+      }
+      /* Smooth section reveal on navigation click */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
-  <body class="font-sans antialiased text-gray-800 scroll-smooth">
+  <body class="font-sans text-primary antialiased scroll-smooth">
     <!-- ================== HEADER ================== -->
-    <header class="fixed inset-x-0 top-0 bg-white shadow z-50">
+    <header class="fixed inset-x-0 top-0 bg-white/80 backdrop-blur shadow z-50" data-aos="fade-down">
       <nav class="container mx-auto flex justify-between items-center py-4 px-4">
-        <h1 class="text-xl font-semibold tracking-wide">COMMIT ART</h1>
-        <ul class="hidden md:flex gap-6 text-sm uppercase tracking-wider list-none m-0 p-0">
-          <li><a href="#hero" class="hover:text-gray-500">Home</a></li>
-          <li><a href="#exhibitions" class="hover:text-gray-500">Exhibitions</a></li>
-          <li><a href="#artists" class="hover:text-gray-500">Artists</a></li>
-          <li><a href="#service" class="hover:text-gray-500">Service</a></li>
-          <li><a href="#news" class="hover:text-gray-500">News</a></li>
-          <li><a href="#about" class="hover:text-gray-500">About</a></li>
-          <li><a href="#contact" class="hover:text-gray-500">Contact</a></li>
+        <h1 class="text-xl md:text-2xl font-bold tracking-wide">COMMIT ART</h1>
+        <ul class="hidden md:flex gap-6 text-xs md:text-sm uppercase tracking-wider list-none m-0 p-0">
+          <li><a href="#hero" class="hover:text-accent">Home</a></li>
+          <li><a href="#exhibitions" class="hover:text-accent">Exhibitions</a></li>
+          <li><a href="#artists" class="hover:text-accent">Artists</a></li>
+          <li><a href="#service" class="hover:text-accent">Service</a></li>
+          <li><a href="#news" class="hover:text-accent">News</a></li>
+          <li><a href="#about" class="hover:text-accent">About</a></li>
+          <li><a href="#contact" class="hover:text-accent">Contact</a></li>
         </ul>
+        <!-- Mobile menu placeholder (optional) -->
+        <button id="menuBtn" class="md:hidden text-2xl" aria-label="open menu">☰</button>
       </nav>
     </header>
 
     <!-- ================== HERO ================== -->
     <section id="hero" class="h-screen bg-cover bg-center flex items-center justify-center" style="background-image:url('https://placehold.co/1920x1080?text=Hero+Image');">
-      <h2 class="text-white text-4xl md:text-6xl font-bold drop-shadow-lg">Commit Art Gallery</h2>
+      <h2 class="text-white text-4xl md:text-6xl font-bold drop-shadow-lg" data-aos="zoom-in">Commit Art Gallery</h2>
     </section>
 
     <!-- ================== NEWS ================== -->
     <section id="news" class="py-20 bg-gray-100">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-10">News</h2>
+        <h2 class="text-2xl md:text-3xl font-bold mb-10" data-aos="fade-right">News</h2>
         <div class="grid md:grid-cols-3 gap-8">
           <!-- News Card -->
-          <article class="bg-white p-6 shadow hover:shadow-lg transition rounded">
-            <h3 class="font-semibold mb-2">夏季休業のお知らせ</h3>
-            <p class="text-sm text-gray-500 mb-4">2025年8月10日 - 8月17日</p>
-            <p>平素は格別のご高配を賜り、誠にありがとうございます。夏季休業期間中は…</p>
+          <article class="bg-white p-6 shadow hover:shadow-lg transition rounded" data-aos="fade-up">
+            <h3 class="font-medium mb-2">夏季休業のお知らせ</h3>
+            <p class="text-xs md:text-sm text-accent mb-4">2025年8月10日 - 8月17日</p>
+            <p class="text-sm leading-relaxed">平素は格別のご高配を賜り、誠にありがとうございます。夏季休業期間中は…</p>
           </article>
           <!-- Duplicate & edit for more news items -->
         </div>
@@ -50,14 +106,14 @@
     <!-- ================== EXHIBITIONS ================== -->
     <section id="exhibitions" class="py-20">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-10">Exhibitions</h2>
+        <h2 class="text-2xl md:text-3xl font-bold mb-10" data-aos="fade-right">Exhibitions</h2>
         <div class="grid md:grid-cols-2 gap-10">
-          <article class="flex flex-col md:flex-row shadow hover:shadow-lg transition rounded overflow-hidden">
-            <img src="https://placehold.co/400x300?text=Exhibition" alt="Exhibition" class="w-full md:w-1/3 object-cover">
-            <div class="p-6 bg-white">
-              <h3 class="font-semibold mb-2">Fields of Memory</h3>
-              <p class="text-sm text-gray-500 mb-4">2025.06.25 - 07.31</p>
-              <p class="text-sm">展示概要をここに記載します。概要文は3行程度がベスト。</p>
+          <article class="flex flex-col md:flex-row shadow hover:shadow-lg transition rounded overflow-hidden" data-aos="fade-up">
+            <img src="https://placehold.co/400x300?text=Exhibition" alt="Exhibition" class="w-full md:w-1/3 object-cover" />
+            <div class="p-6 bg-white flex flex-col justify-center">
+              <h3 class="font-medium mb-2 text-lg">Fields of Memory</h3>
+              <p class="text-xs md:text-sm text-accent mb-4">2025.06.25 - 07.31</p>
+              <p class="text-sm leading-relaxed">展示概要をここに記載します。概要文は3行程度がベスト。</p>
             </div>
           </article>
         </div>
@@ -67,9 +123,14 @@
     <!-- ================== ARTISTS ================== -->
     <section id="artists" class="py-20 bg-gray-100">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-10">Artists</h2>
-        <ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center text-sm font-medium tracking-wide list-none p-0">
-          <li>Atsuko Tanaka</li><li>Yuki Katsura</li><li>Vincent van Gogh</li><li>Claude Monet</li><li>Pablo Picasso</li><li>Yayoi Kusama</li>
+        <h2 class="text-2xl md:text-3xl font-bold mb-10" data-aos="fade-right">Artists</h2>
+        <ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center text-xs md:text-sm font-medium tracking-wide list-none p-0">
+          <li data-aos="zoom-in">Atsuko Tanaka</li>
+          <li data-aos="zoom-in" data-aos-delay="50">Yuki Katsura</li>
+          <li data-aos="zoom-in" data-aos-delay="100">Vincent van Gogh</li>
+          <li data-aos="zoom-in" data-aos-delay="150">Claude Monet</li>
+          <li data-aos="zoom-in" data-aos-delay="200">Pablo Picasso</li>
+          <li data-aos="zoom-in" data-aos-delay="250">Yayoi Kusama</li>
         </ul>
       </div>
     </section>
@@ -77,41 +138,52 @@
     <!-- ================== SERVICE ================== -->
     <section id="service" class="py-20">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-10">Service</h2>
-        <p class="max-w-3xl leading-relaxed">美術品の購入・売却、美術館設立サポート、作品修復、保管、目録作成などあらゆるご相談を承ります。</p>
+        <h2 class="text-2xl md:text-3xl font-bold mb-10" data-aos="fade-right">Service</h2>
+        <p class="max-w-3xl leading-relaxed text-sm md:text-base" data-aos="fade-up" data-aos-delay="100">美術品の購入・売却、美術館設立サポート、作品修復、保管、目録作成などあらゆるご相談を承ります。</p>
       </div>
     </section>
 
     <!-- ================== ABOUT ================== -->
     <section id="about" class="py-20 bg-gray-100">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-10">About</h2>
-        <p class="max-w-3xl leading-relaxed">Commit Art Galleryは東京都中央区銀座に所在し、日本と海外をつなぐアートプラットフォームとして…（任意の紹介文を追加）。</p>
+        <h2 class="text-2xl md:text-3xl font-bold mb-10" data-aos="fade-right">About</h2>
+        <p class="max-w-3xl leading-relaxed text-sm md:text-base" data-aos="fade-up">Commit Art Galleryは東京都中央区銀座に所在し、日本と海外をつなぐアートプラットフォームとして…（任意の紹介文を追加）。</p>
       </div>
     </section>
 
     <!-- ================== CONTACT ================== -->
     <section id="contact" class="py-20">
       <div class="container mx-auto px-4 max-w-xl">
-        <h2 class="text-3xl font-bold mb-10 text-center">Contact</h2>
-        <form class="grid gap-6">
-          <input type="text" placeholder="お名前" class="border p-3 rounded">
-          <input type="email" placeholder="メールアドレス" class="border p-3 rounded">
+        <h2 class="text-2xl md:text-3xl font-bold mb-10 text-center" data-aos="fade-right">Contact</h2>
+        <form class="grid gap-6" data-aos="fade-up">
+          <input type="text" placeholder="お名前" class="border p-3 rounded" />
+          <input type="email" placeholder="メールアドレス" class="border p-3 rounded" />
           <textarea placeholder="お問い合わせ内容" class="border p-3 rounded h-32"></textarea>
-          <button type="submit" class="bg-black text-white py-3 px-6 rounded hover:bg-gray-800 transition">送信</button>
+          <button type="submit" class="bg-primary text-white py-3 px-6 rounded hover:bg-gray-800 transition">送信</button>
         </form>
       </div>
     </section>
 
     <!-- ================== FOOTER ================== -->
-    <footer class="bg-black text-white py-10">
-      <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between text-sm">
+    <footer class="bg-primary text-white py-10" data-aos="fade-up">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between text-xs md:text-sm">
         <p>© 2025 Commit Art Gallery</p>
         <div class="flex gap-4 mt-4 md:mt-0">
-          <a href="#" class="hover:text-gray-400" aria-label="Instagram">Instagram</a>
-          <a href="#" class="hover:text-gray-400" aria-label="Facebook">Facebook</a>
+          <a href="#" class="hover:text-accent" aria-label="Instagram">Instagram</a>
+          <a href="#" class="hover:text-accent" aria-label="Facebook">Facebook</a>
         </div>
       </div>
     </footer>
+    
+    <!-- ======================================= -->
+    <!-- 5. Optional: simple mobile menu script -->
+    <!-- ======================================= -->
+    <script>
+      const menuBtn = document.getElementById('menuBtn');
+      const navList = document.querySelector('header nav ul');
+      menuBtn?.addEventListener('click', () => {
+        navList.classList.toggle('hidden');
+      });
+    </script>
   </body>
 </html>
