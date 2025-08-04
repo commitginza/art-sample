@@ -5,15 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Commit Art Gallery</title>
-    <!-- Tailwind CDN for rapid styling -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Tailwind Play CDN (開発用). 404 を避けるため、公式推奨のスクリプト版を採用 -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <!-- オプションで Google Fonts などを読み込む場合はここに追加 -->
   </head>
   <body class="font-sans antialiased text-gray-800 scroll-smooth">
     <!-- ================== HEADER ================== -->
     <header class="fixed inset-x-0 top-0 bg-white shadow z-50">
       <nav class="container mx-auto flex justify-between items-center py-4 px-4">
         <h1 class="text-xl font-semibold tracking-wide">COMMIT ART</h1>
-        <ul class="hidden md:flex gap-6 text-sm uppercase tracking-wider">
+        <ul class="hidden md:flex gap-6 text-sm uppercase tracking-wider list-none m-0 p-0">
           <li><a href="#hero" class="hover:text-gray-500">Home</a></li>
           <li><a href="#exhibitions" class="hover:text-gray-500">Exhibitions</a></li>
           <li><a href="#artists" class="hover:text-gray-500">Artists</a></li>
@@ -36,7 +37,7 @@
         <h2 class="text-3xl font-bold mb-10">News</h2>
         <div class="grid md:grid-cols-3 gap-8">
           <!-- News Card -->
-          <article class="bg-white p-6 shadow hover:shadow-lg transition">
+          <article class="bg-white p-6 shadow hover:shadow-lg transition rounded">
             <h3 class="font-semibold mb-2">夏季休業のお知らせ</h3>
             <p class="text-sm text-gray-500 mb-4">2025年8月10日 - 8月17日</p>
             <p>平素は格別のご高配を賜り、誠にありがとうございます。夏季休業期間中は…</p>
@@ -51,9 +52,9 @@
       <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold mb-10">Exhibitions</h2>
         <div class="grid md:grid-cols-2 gap-10">
-          <article class="flex flex-col md:flex-row shadow hover:shadow-lg transition">
+          <article class="flex flex-col md:flex-row shadow hover:shadow-lg transition rounded overflow-hidden">
             <img src="https://placehold.co/400x300?text=Exhibition" alt="Exhibition" class="w-full md:w-1/3 object-cover">
-            <div class="p-6">
+            <div class="p-6 bg-white">
               <h3 class="font-semibold mb-2">Fields of Memory</h3>
               <p class="text-sm text-gray-500 mb-4">2025.06.25 - 07.31</p>
               <p class="text-sm">展示概要をここに記載します。概要文は3行程度がベスト。</p>
@@ -67,7 +68,7 @@
     <section id="artists" class="py-20 bg-gray-100">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold mb-10">Artists</h2>
-        <ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center text-sm font-medium tracking-wide">
+        <ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center text-sm font-medium tracking-wide list-none p-0">
           <li>Atsuko Tanaka</li><li>Yuki Katsura</li><li>Vincent van Gogh</li><li>Claude Monet</li><li>Pablo Picasso</li><li>Yayoi Kusama</li>
         </ul>
       </div>
